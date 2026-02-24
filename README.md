@@ -71,3 +71,6 @@ export default defineConfig([
   },
 ])
 ```
+## Lighthouse Accessibility Skoru
+
+![Lighthouse Score](./public/screenshots/lighthouse-score.png)
