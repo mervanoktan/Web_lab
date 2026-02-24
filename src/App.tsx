@@ -29,7 +29,7 @@ function App() {
         Ana içeriğe atla
       </a>
 
-      <header>
+      <header role="banner">
         <h1>Mervan Oktan - Kişisel Portföy</h1>
 
         <nav aria-label="Ana navigasyon">
@@ -41,7 +41,7 @@ function App() {
         </nav>
       </header>
 
-      <main id="main-content">
+      <main id="main-content" role="main">
         {/* HAKKIMDA */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
@@ -94,7 +94,10 @@ function App() {
                   name="name"
                   required
                   minLength={2}
-                  aria-describedby="name-error"
+                  autoComplete="name"
+                  aria-required="true"
+                  aria-invalid={error ? "true" : "false"}
+                  aria-describedby={error ? "name-error" : undefined}
                 />
               </div>
 
@@ -105,6 +108,8 @@ function App() {
                   id="email"
                   name="email"
                   required
+                  autoComplete="email"
+                  aria-required="true"
                 />
               </div>
 
@@ -116,6 +121,7 @@ function App() {
                   rows={5}
                   required
                   minLength={10}
+                  aria-required="true"
                 ></textarea>
               </div>
 
@@ -138,6 +144,7 @@ function App() {
                 <p
                   role="status"
                   aria-live="polite"
+                  tabIndex={-1}
                   style={{ color: "green", marginTop: "10px" }}
                 >
                   ✅ Form başarıyla gönderildi!
@@ -148,10 +155,11 @@ function App() {
         </section>
       </main>
 
-      <footer>
+      <footer role="contentinfo">
         <p>&copy; 2025 Mervan Oktan. Tüm hakları saklıdır.</p>
       </footer>
     </>
   );
 }
 
+export default App;
