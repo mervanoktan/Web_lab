@@ -74,3 +74,22 @@ export default defineConfig([
 ## Lighthouse Accessibility Skoru
 
 ![Lighthouse Score](./public/screenshots/lighthouse-score.png)
+
+## Lab-2 Accessibility Improvements
+- Semantic HTML
+- ARIA roles
+- Form validation
+- Lighthouse 90+
+
+
+## LAB-2 Accessibility Improvements
+
+This branch includes:
+
+- Semantic HTML structure
+- Proper heading hierarchy
+- ARIA roles and landmarks
+- Accessible form validation
+- Skip link navigation
+- Focus indicators
+- Lighthouse accessibility score 90+
