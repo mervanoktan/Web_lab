@@ -29,8 +29,9 @@ function App() {
         Ana içeriğe atla
       </a>
 
+      {/* HEADER — Flexbox ile Responsive Nav */}
       <header role="banner">
-        <h1>Mervan Oktan - Kişisel Portföy</h1>
+        <span className="site-title">Mervan Oktan</span>
 
         <nav aria-label="Ana navigasyon">
           <ul>
@@ -42,40 +43,102 @@ function App() {
       </header>
 
       <main id="main-content" role="main">
+
         {/* HAKKIMDA */}
         <section id="hakkimda">
           <h2>Hakkımda</h2>
 
-          <figure>
-            <img
-              src={profil}
-              alt="Mervan Oktan'ın profil fotoğrafı"
-              width="150"
-              height="150"
-              loading="lazy"
-            />
-            <figcaption>Mervan Oktan</figcaption>
-          </figure>
+          <div className="about-content">
+            <figure>
+              <img
+                src={profil}
+                alt="Mervan Oktan'ın profil fotoğrafı"
+                width="150"
+                height="150"
+                loading="lazy"
+              />
+              <figcaption>Mervan Oktan</figcaption>
+            </figure>
 
-          <p>
-            Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim.
-            Web geliştirme ve modern frontend teknolojileri üzerine çalışıyorum.
-          </p>
+            <div>
+              <p>
+                Fırat Üniversitesi Yazılım Mühendisliği öğrencisiyim.
+                Web geliştirme ve modern frontend teknolojileri üzerine çalışıyorum.
+              </p>
+
+              {/* Skill Tags Toolbar — Flexbox */}
+              <ul
+                className="skill-tags"
+                role="list"
+                aria-label="Beceri etiketleri"
+              >
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>Git</li>
+              </ul>
+            </div>
+          </div>
         </section>
 
-        {/* PROJELER */}
+        {/* PROJELER — CSS Grid Kart Düzeni */}
         <section id="projeler">
           <h2>Projelerim</h2>
 
-          <article>
-            <h3>E-Ticaret Platformu</h3>
-            <p>Node.js ve React kullanılarak geliştirilmiştir.</p>
-          </article>
+          <div className="project-grid">
+            <article className="project-card">
+              <img
+                src="https://placehold.co/400x200/1E3A8A/ffffff?text=E-Ticaret"
+                alt="E-Ticaret sitesi anasayfa ekran görüntüsü"
+                width="400"
+                height="200"
+                loading="lazy"
+              />
+              <h3>E-Ticaret Platformu</h3>
+              <p>React ve Node.js ile geliştirilmiş tam kapsamlı bir e-ticaret uygulaması.</p>
+              <ul className="skill-tags" aria-label="Kullanılan teknolojiler">
+                <li>React</li>
+                <li>Node.js</li>
+                <li>MongoDB</li>
+              </ul>
+            </article>
 
-          <article>
-            <h3>Anomali Tespit Sistemi</h3>
-            <p>Kaggle veri setleri ile makine öğrenmesi projesi.</p>
-          </article>
+            <article className="project-card">
+              <img
+                src="https://placehold.co/400x200/2563EB/ffffff?text=Anomali+Tespit"
+                alt="Anomali tespit sistemi arayüz ekran görüntüsü"
+                width="400"
+                height="200"
+                loading="lazy"
+              />
+              <h3>Anomali Tespit Sistemi</h3>
+              <p>Kaggle veri setleri ile makine öğrenmesi projesi. Markdown destekli raporlama.</p>
+              <ul className="skill-tags" aria-label="Kullanılan teknolojiler">
+                <li>Python</li>
+                <li>Scikit-learn</li>
+                <li>Pandas</li>
+              </ul>
+            </article>
+
+            <article className="project-card">
+              <img
+                src="https://placehold.co/400x200/7C3AED/ffffff?text=Web+Lab"
+                alt="Web Lab portföy projesi ekran görüntüsü"
+                width="400"
+                height="200"
+                loading="lazy"
+              />
+              <h3>Web Lab Portföy</h3>
+              <p>Modern CSS, Flexbox ve Grid ile oluşturulmuş responsive portföy sayfası.</p>
+              <ul className="skill-tags" aria-label="Kullanılan teknolojiler">
+                <li>TypeScript</li>
+                <li>React</li>
+                <li>CSS Grid</li>
+              </ul>
+            </article>
+          </div>
         </section>
 
         {/* İLETİŞİM */}
@@ -86,7 +149,7 @@ function App() {
             <fieldset>
               <legend>İletişim Formu</legend>
 
-              <div>
+              <div className="form-group">
                 <label htmlFor="name">Ad Soyad:</label>
                 <input
                   type="text"
@@ -101,7 +164,7 @@ function App() {
                 />
               </div>
 
-              <div>
+              <div className="form-group">
                 <label htmlFor="email">E-posta:</label>
                 <input
                   type="email"
@@ -113,7 +176,7 @@ function App() {
                 />
               </div>
 
-              <div>
+              <div className="form-group">
                 <label htmlFor="message">Mesaj:</label>
                 <textarea
                   id="message"
@@ -125,13 +188,13 @@ function App() {
                 ></textarea>
               </div>
 
-              {/* ERROR MESAJI */}
+              {/* Hata mesajı */}
               {error && (
                 <p
                   id="name-error"
                   role="alert"
                   aria-live="assertive"
-                  style={{ color: "red", marginTop: "10px" }}
+                  className="form-error"
                 >
                   {error}
                 </p>
@@ -139,13 +202,13 @@ function App() {
 
               <button type="submit">Gönder</button>
 
-              {/* SUCCESS MESAJI */}
+              {/* Başarı mesajı */}
               {submitted && !error && (
                 <p
                   role="status"
                   aria-live="polite"
                   tabIndex={-1}
-                  style={{ color: "green", marginTop: "10px" }}
+                  className="form-success"
                 >
                   ✅ Form başarıyla gönderildi!
                 </p>
